@@ -15,7 +15,7 @@ def index():
     except Exception as e:
         message = f'Error: {e}'
         value = ''
-    return render_template_string('<h1>Frontend</h1><p>{{message}}</p><p>Data: {{value}}</p>', message=message, value=value)
+    return render_template_string('<h1>Hello world!</h1><p>{{message}}</p><p>Data: {{value}}</p>', message=message, value=value)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5001)
+    app.run(host='0.0.0.0', port=5001, debug=True)

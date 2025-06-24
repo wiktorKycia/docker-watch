@@ -13,6 +13,7 @@ services:
       interval: 1s
       timeout: 5s
       retries: 10
+
   backend:
     build: ./backend
     ports:
@@ -20,6 +21,14 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    develop:
+      watch:
+        - action: sync
+          path: ./backend
+          target: /app
+          ignore:
+            - Dockerfile
+
   frontend:
     build: ./frontend
     ports:
@@ -27,5 +36,12 @@ services:
     depends_on:
       backend:
         condition: service_started
+    develop:
+      watch:
+        - action: sync
+          path: ./frontend
+          target: /app
+          ignore:
+            - Dockerfile
 volumes:
   pgdata:

@@ -1,0 +1,18 @@
+https://docs.docker.com/compose/how-tos/file-watch/
+
+action:
+-sync           po prostu  synchronizacja real-time
+-sync+restart   najpierw synchronizacja, potem restart kontenera
+-rebuild        przebudowanie kontenera na nowo
+
+można zrobić tak, że niektóre pliki są na sync, a niektóre są na rebuild itp.
+
+path i target:
+path to relatywna wzgl. projektu
+target to absolutna w kontenerze
+
+ignore:
+jakich plików nie przenosić
+względne do path
+
+docker compose up --watch
