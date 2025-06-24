@@ -3,6 +3,7 @@ services:
   db:
     image: postgres
     restart: always
+    user: postgres
     env_file:
       - .env
     volumes:
